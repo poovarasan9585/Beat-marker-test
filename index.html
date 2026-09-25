@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Beat Marker</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Beat Marker</h1>
+  <p class="sub">Premiere Pro 23.2 • Audio Beat Detection</p>
+
+  <label>Audio file
+    <input id="audio" type="file" accept="audio/*">
+  </label>
+
+  <label>Sensitivity <span id="sensVal">0.55</span>
+    <input id="sens" type="range" min=".1" max="1" step=".05" value=".55">
+  </label>
+
+  <label>Minimum spacing
+    <select id="spacing">
+      <option value="180">180 ms</option>
+      <option value="220" selected>220 ms</option>
+      <option value="280">280 ms</option>
+      <option value="350">350 ms</option>
+      <option value="500">500 ms</option>
+    </select>
+  </label>
+
+  <label>Sequence offset (seconds)
+    <input id="offset" type="number" step=".001" value="0">
+  </label>
+
+  <label>Marker mode
+    <select id="mode">
+      <option value="all">All beats</option>
+      <option value="strong">Strong beats</option>
+      <option value="half">Every 2nd beat</option>
+    </select>
+  </label>
+
+  <div class="buttons">
+    <button id="analyze">Analyze Beats</button>
+    <button id="create">Create Markers</button>
+    <button id="clear">Clear Markers</button>
+  </div>
+
+  <div class="stats">
+    <b>BPM</b><span id="bpm">—</span>
+    <b>Beats</b><span id="count">0</span>
+    <b>Duration</b><span id="duration">—</span>
+  </div>
+
+  <pre id="preview"></pre>
+  <div id="status">Choose an audio file.</div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
